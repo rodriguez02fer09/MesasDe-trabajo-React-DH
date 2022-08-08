@@ -1,5 +1,3 @@
-
-
         var listRenderStock =[ ]; var listRenderNoStock =[ ]; var tasks = [ { 'name' : 'Manzas', 'stock' : true }, { 'name' : 'Peras', 'stock' : false }, { 'name' : 'Naranjas', 'stock' : true } ]; for (var i = 0, max = tasks.length; i
         < max; i +=1 ) {
             if(tasks[i].stock) { listRenderStock.push(<li>{tasks[i].name}</li>); } else { listRenderNoStock.push(
@@ -16,5 +14,3 @@
                 </ul>
             </div>
             ReactDOM.render(lista,document.getElementById("root"))
-
-   

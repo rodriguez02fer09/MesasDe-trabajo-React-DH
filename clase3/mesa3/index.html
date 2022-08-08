@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Johnny Depp</title>
+  </head>
+  <body>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <div id="root">
+      <script type="text/babel">
+        const optionNavBar = ["Home", "About", "Career", "Education"];
+        // Definición
+        function NavBar(props) {
+          //const {titulo,opciones} = props  sacar los valores a los que acceder
+          // const { title } = props;
+          //     return (
+          //       <Header>
+          //         <h1>{title}</h1>
+          //         <ul>
+          //           {options.map(option) => {
+          //             return <a>opctions</a>
+          //           }}
+          //         </ul>
+          //         // {/* <h1>{props.title}</h1> */}
+          //       </Header>
+          //     )
+          //   }
+          const optionsRender = props.opciones.map((opt) => {
+            return (
+              <li>
+                <a>{opt}</a>
+              </li>
+            );
+          });
+
+          return (
+            <header>
+              <ul>{optionsRender}</ul>
+            </header>
+          );
+        }
+        const personalInformation = [
+          {
+            name: "Johnny",
+            lastName: "Deep",
+            age: "59",
+            nacionality: "USA",
+            biography:
+              "John Christopher Depp II es un actor, productor de cine y músico estadounidense. Ha sido nominado en tres ocasiones al Óscar y recibió un Globo de Oro, ​ un premio del Sindicato de Actores y un César.​",
+          },
+        ];
+
+        function ShowInformation(props) {
+          const renderInformation = props.items.map((actor) => {
+            return (
+              <div>
+                <p>Personal Information</p>
+                <ul>
+                  <li>Name:{actor.name}</li>
+                  <li>last Name:{actor.lastName}</li>
+                  <li>Age:{actor.age}</li>
+                  <li>nacionality:{actor.nacionality}</li>
+                  <li>biography{actor.biography}</li>
+                </ul>
+              </div>
+            );
+          });
+          return (
+            <main>
+              <ul>{renderInformation}</ul>
+            </main>
+          );
+        }
+        const experienceAndEducation = {
+          experience: ["Piratas del caribe 1", "Piratas del caribe 2"],
+          educacion: ["University of Arts"],
+        };
+        function Informacion(props) {
+          const renderExperEduction = () => {
+            return props.information.map((info) => {
+              return (
+                <div>
+                  <ul>
+                    <li>experience:{info}</li>
+                  </ul>
+                </div>
+              );
+            });
+          };
+
+          return (
+            <main>
+              <p>{props.titulo} </p>
+              <ul>{renderExperEduction()}</ul>
+            </main>
+          );
+        }
+
+        ReactDOM.render(
+          //implementacion
+          <div>
+            <NavBar opciones={optionNavBar} />
+            <ShowInformation items={personalInformation} />
+            <Informacion information={experienceAndEducation.experience} titulo="experience in movies" />
+            <Informacion information={experienceAndEducation.educacion} titulo="Education"/>
+          </div>,
+          document.getElementById("root")
+        );
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicando JSX</title>
+</head>
+<body>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+            
+    <div id="root"></div>
+    <script type="text/babel">
+        
+        const lista= [
+            "hamburguesa",
+            "Pizza",
+            "Salchipapa",
+            "empanadas"
+       ]
+
+       const faltantes= [   
+            "Gaseosas",
+            "Agua",
+            "Vino"
+       ]
+
+       function MostrarProd(props) {
+   
+        const elementos = props.lista.map((list)=><li>{list}</li>)
+
+        const arbol =
+        <div>
+        <h2>Lista de {props.titulo}</h2>    
+        <ul>{elementos}</ul>    
+        </div>
+
+        return arbol;
+
+        }
+
+        ReactDOM.render(
+            <div>
+                <MostrarProd lista={lista} titulo="Productos" />
+                <MostrarProd lista={faltantes} titulo="Faltantes" />
+            </div>,
+            document.getElementById("root")
+        )
+    //    function Productos(props) {
+    //     console.log(props);
+           
+    //        const elementos = props.articulos.map((prod)=>
+    //        <li>{prod}</li>
+           
+    //        );
+
+    //        const faltan = props.sinstock.map((fal)=>
+    //        <li>{fal}</li>
+           
+    //        );
+    //        const listado =
+    //        <div>
+    //         <h2>Lista de productos</h2>    
+    //         <ul>{elementos}</ul>   
+    //         <h2>Lista de Faltantes</h2>
+    //         <ul>{faltan}</ul>
+    //         </div>
+            
+            
+    //         return listado;
+
+    //    }
+       
+    //    ReactDOM.render(<Productos articulos={lista}  />,document.getElementById("root"))
+
+     
+
+    </script>
+</body>
+</html>
