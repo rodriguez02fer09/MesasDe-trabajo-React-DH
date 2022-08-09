@@ -105,15 +105,23 @@
             </main>
           );
         }
-
+       
+        
         ReactDOM.render(
           //implementacion
           <div>
             <NavBar opciones={optionNavBar} />
             <ShowInformation items={personalInformation} />
-            <Informacion information={experienceAndEducation.experience} titulo="experience in movies" />
-            <Informacion information={experienceAndEducation.educacion} titulo="Education"/>
-          </div>,
+            <img src="./johnnydeep.jpeg" alt="" />
+            <Informacion
+              information={experienceAndEducation.experience}
+              titulo="experience in movies"
+            />
+            <Informacion
+              information={experienceAndEducation.educacion}
+              titulo="Education"
+            />
+          </div>, 
           document.getElementById("root")
         );
       </script>
